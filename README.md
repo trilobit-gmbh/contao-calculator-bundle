@@ -4,8 +4,9 @@ Calculator Bundle
 Das Calculator Bundle ermöglicht es durch Verwendung eines Insert-Tags eine Vielzahl an Operationen durchzuführen.
 Mögliche Operationen währen arithmetische Operationen, mit denen es möglich ist, einfache bis verschachtelte Berechnungen
 auszuführen. Durch die Verwendung der Symfony Expression Language ist es außerdem möglich, Variablen zu definieren 
-und diese wiederum für Operationen zu verwenden. Diese Variablen werden in der config.yml definiert und müssen wie
-ein Array aufgebaut sein.
+und diese wiederum für Operationen zu verwenden. Diese Variablen können entweder in einer `config.yml` definiert werden dann
+muss diese mit dem Array `parameters` anfangen und unter `www/app/config` ihrer Webseite abgelegt werden. Oder sie fügen 
+die Variablen in die `parameters.yml` ihrer Webseite ein, so wie im Beispiel unten.
 
 Aufbau
 ------
@@ -22,8 +23,9 @@ Calculator bundle
 
 The Calculator Bundle allows you to perform a variety of operations by using an insert-tag. Possible operations 
 could be arithmetical operations with which it is possible to do simple to complex calculations. By using the 
-Symfony Expression Language it is also possible to define variables and to use these again for operations. 
-These variables are defined in the config.yml and have to be constructed like an array.
+Symfony Expression Language it is also possible to define variables and to use these for operations. 
+These variables can either be defined in a `config.yml` but then they must start with the array `parameters` and be 
+stored in `www/app/config` of your website. Or you add the variables to your `parameters.yml` of your website, as in the example below.
 
 
 Structure
@@ -35,16 +37,42 @@ with variables like this: {{calc::length * width}}
 or like this {{calc::rectangle['length'] * rectangle['width']}}.
 
 
-Screenshot
+How to use
 ----------
-![](docs/images/screenshot_001.png)
-config.yml zum definieren der Variablen
 
-![](docs/images/screenshot_002.png)
-Syntax des Insert-Tags im Artikel
+Add parameters to your `parameters.yml`:
+```yaml
+trilobit:
+  calculator:
+    vars:
+      trilobit: 123
+      contao:
+        partner:
+        - type: 'Webdesign'
+          test: 42
+          referenzen:
+          - 'du'
+          - 'ich'
+          - 'wir'
+        - type: 'Progammierung'
+          test: 2
+        - type: 'Schulung'
+          test: 3
+      github: 'trilobit-gmbh'
+```
 
-![](docs/images/screenshot_003.png)
-Ausgabe im Frontend
+
+| Insert-Tag | Ergebnis / Ausgabe |
+| ------------------ | ------------------ |
+| `{{calc::5+7}}` | 12 |
+| `{{calc::5+7*10}}` | 75 |
+| `{{calc::trilobit}}` | 123 |
+| `{{calc::trilobit*3}}` | 369 |
+| `{{calc::contao['partner'][0]['type']}}` | Webdesign |
+| `{{calc::contao['partner'][0]['test']}}` | 42 |
+| `{{calc::contao['partner'][0]['referenzen'][0]}}` | du |
+| `{{calc::contao['partner'][0]['test'] + trilobit}}` | 165 |
+| `{{calc::github}}` | trilobit-gmbh |
 
 
 Installation
@@ -57,3 +85,4 @@ Compatibility
 -------------
 
 - Contao version ~4.4
+- PHP >= 7.1

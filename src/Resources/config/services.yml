@@ -1,0 +1,8 @@
+services:
+  _instanceof:
+    Symfony\Component\DependencyInjection\ContainerAwareInterface:
+      calls:
+      - ["setContainer", ["@service_container"]]
+
+  trilobit_contao_calculator.evaluator:
+    class: 'Trilobit\ContaoCalculator\InsertTag\Calculator'

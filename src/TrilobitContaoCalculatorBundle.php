@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * @copyright  trilobit GmbH
  * @author     trilobit GmbH <https://github.com/trilobit-gmbh>
@@ -7,7 +9,7 @@
  * @link       http://github.com/trilobit-gmbh/contao-calculator-bundle
  */
 
-namespace Trilobit\CalculatorBundle;
+namespace Trilobit\ContaoCalculator;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -16,6 +18,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @author trilobit GmbH <https://github.com/trilobit-gmbh>
  */
-class TrilobitCalculatorBundle extends Bundle
+class TrilobitContaoCalculatorBundle extends Bundle
 {
 }

@@ -7,7 +7,4 @@
  * @link       http://github.com/trilobit-gmbh/contao-calculator-bundle
  */
 
-/**
- * Register hook.
- */
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['Trilobit\CalculatorBundle\Calculator', 'myCalculator'];
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['trilobit_contao_calculator.evaluator', 'onEvaluateInsertTag'];

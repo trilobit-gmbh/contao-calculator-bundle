@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * @copyright  trilobit GmbH
  * @author     trilobit GmbH <https://github.com/trilobit-gmbh>
@@ -7,11 +9,13 @@
  * @link       http://github.com/trilobit-gmbh/contao-calculator-bundle
  */
 
-namespace Trilobit\CalculatorBundle\ContaoManager;
+namespace Trilobit\ContaoCalculator\ContaoManager;
 
+use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Trilobit\ContaoCalculator\TrilobitContaoCalculatorBundle;
 
 /**
  * Plugin for the Contao Manager.
@@ -26,8 +30,8 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create('Trilobit\CalculatorBundle\TrilobitCalculatorBundle')
-                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle']),
+            BundleConfig::create(TrilobitContaoCalculatorBundle::class)
+                ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
 }

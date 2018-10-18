@@ -10,33 +10,23 @@
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": "^7.1",
         "contao/core-bundle": "~4.4",
         "symfony/expression-language": "^3.4"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0",
-        "friendsofphp/php-cs-fixer": "^2.1",
-        "leofeyer/optimize-native-functions-fixer": "^1.1"
+        "friendsofphp/php-cs-fixer": "^2.1"
     },
     "conflict": {
         "contao/manager-plugin": "<2.0 || >=3.0"
     },
     "autoload": {
         "psr-4": {
-            "Trilobit\\CalculatorBundle\\": "src/"
-        },
-        "classmap": [
-            "src/Resources/contao/"
-        ],
-        "exclude-from-classmap": [
-            "src/Resources/contao/config/",
-            "src/Resources/contao/dca/",
-            "src/Resources/contao/languages/",
-            "src/Resources/contao/templates/"
-        ]
+            "Trilobit\\ContaoCalculator\\": "src/"
+        }
     },
     "extra": {
-        "contao-manager-plugin": "Trilobit\\CalculatorBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Trilobit\\ContaoCalculator\\ContaoManager\\Plugin"
     }
 }
