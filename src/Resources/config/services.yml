@@ -6,3 +6,6 @@ services:
 
   trilobit_contao_calculator.evaluator:
     class: 'Trilobit\ContaoCalculator\InsertTag\Calculator'
+    arguments:
+      - '@service_container'
+    public: true
