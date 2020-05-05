@@ -32,6 +32,12 @@ class Calculator implements ContainerAwareInterface
         if ('calc' === $parts[0]) {
             $task = $parts[1];
 
+            if (preg_match_all('/\[\[date::(.*?)\]\]/', $parts[1], $dates)) {
+                foreach ($dates[0] as $k => $v) {
+                    $task = str_replace($v, Date::parse($dates[1][$k]), $task);
+                }
+            }
+
             $expressionLanguage = new ExpressionLanguage();
 
             try {
