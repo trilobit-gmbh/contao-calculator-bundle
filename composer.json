@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "contao/core-bundle": "~4.4",
+        "php": "^7.3",
+        "contao/core-bundle": "~4.9",
         "symfony/expression-language": "^3.4 || ^4.0"
     },
     "require-dev": {
