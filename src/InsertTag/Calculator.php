@@ -51,16 +51,16 @@ class Calculator implements ContainerAwareInterface
 
     private function getUserVariables(): array
     {
-        if (!$this->container->hasParameter('trilobit')) {
+        if (!$this->container->hasParameter('trilobit_contao_calculator')) {
             return [];
         }
 
-        $root = $this->container->getParameter('trilobit');
+        $root = $this->container->getParameter('trilobit_contao_calculator');
 
-        if (!isset($root['calculator']['vars'])) {
+        if (!isset($root['vars'])) {
             return [];
         }
 
-        return $root['calculator']['vars'];
+        return $root['vars'];
     }
 }
