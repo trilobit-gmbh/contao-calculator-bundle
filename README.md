@@ -40,25 +40,24 @@ or like this {{calc::rectangle['length'] * rectangle['width']}}.
 How to use
 ----------
 
-Add parameters to your `parameters.yml`:
+Add parameters to your `config.yml`:
 ```yaml
-trilobit:
-  calculator:
+trilobit_contao_calculator:
     vars:
-      trilobit: 123
-      contao:
-        partner:
-        - type: 'Webdesign'
-          test: 42
-          referenzen:
-          - 'du'
-          - 'ich'
-          - 'wir'
-        - type: 'Progammierung'
-          test: 2
-        - type: 'Schulung'
-          test: 3
-      github: 'trilobit-gmbh'
+        trilobit: 123
+        contao:
+            partner:
+                - type: 'Webdesign'
+                  test: 42
+                  referenzen:
+                      - 'du'
+                      - 'ich'
+                      - 'wir'
+                - type: 'Progammierung'
+                  test: 2
+                - type: 'Schulung'
+                  test: 3
+        github: 'trilobit-gmbh'
 ```
 
 
@@ -84,5 +83,5 @@ Install the extension via composer: [trilobit-gmbh/contao-calculator-bundle](htt
 Compatibility
 -------------
 
-- Contao version ~4.4
-- PHP >= 7.1
+- Contao version ~4.9
+- PHP >= 7.3
