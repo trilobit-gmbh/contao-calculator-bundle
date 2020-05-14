@@ -91,5 +91,6 @@ Install the extension via composer: [trilobit-gmbh/contao-calculator-bundle](htt
 Compatibility
 -------------
 
+- Contao version ~4.4
 - Contao version ~4.9
-- PHP >= 7.3
+- PHP >= 7.1
