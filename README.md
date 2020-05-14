@@ -47,24 +47,25 @@ or like this `{{calc::rectangle['length'] * rectangle['width']}}`.
 How to use
 ----------
 
-Add parameters to your `config.yml`:
+Add parameters to your `parameters.yml` or `config.yml`:
 ```yaml
-trilobit_contao_calculator:
-    vars:
-        trilobit: 123
-        contao:
-            partner:
-                - type: 'Webdesign'
-                  test: 42
-                  referenzen:
-                      - 'du'
-                      - 'ich'
-                      - 'wir'
-                - type: 'Progammierung'
-                  test: 2
-                - type: 'Schulung'
-                  test: 3
-        github: 'trilobit-gmbh'
+trilobit:
+    calculator:
+        vars:
+            trilobit: 123
+            contao:
+                partner:
+                    - type: 'Webdesign'
+                      test: 42
+                      referenzen:
+                          - 'du'
+                          - 'ich'
+                          - 'wir'
+                    - type: 'Progammierung'
+                      test: 2
+                    - type: 'Schulung'
+                      test: 3
+            github: 'trilobit-gmbh'
 ```
 
 

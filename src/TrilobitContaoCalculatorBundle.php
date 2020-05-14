@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Trilobit\ContaoCalculator;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Trilobit\ContaoCalculator\DependencyInjection\TrilobitContaoCalculatorExtension;
 
 /**
  * Configures the trilobit calculator bundle.
@@ -20,4 +21,19 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class TrilobitContaoCalculatorBundle extends Bundle
 {
+    /**
+     * Overridden to allow for the custom extension alias.
+     */
+    public function getContainerExtension()
+    {
+        if (null === $this->extension) {
+            $this->extension = new TrilobitContaoCalculatorExtension();
+        }
+
+        return $this->extension;
+    }
+
+    public function getParent()
+    {
+    }
 }

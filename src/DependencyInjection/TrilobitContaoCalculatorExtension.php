@@ -13,22 +13,30 @@ namespace Trilobit\ContaoCalculator\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class TrilobitContaoCalculatorExtension extends Extension
 {
+    public function getAlias()
+    {
+        return 'trilobit';
+    }
+
     /**
-     * Loads a specific configuration.
-     *
-     * @param array            $configs   An array of configuration values
-     * @param ContainerBuilder $container A ContainerBuilder instance
-     *
-     * @throws \Exception
+     * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
+        $configuration = new Configuration();
+
+        $bundleConfig = $this->processConfiguration($configuration, $configs);
+
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        if (isset($bundleConfig['calculator'])) {
+            $container->setParameter('trilobit.calculator', $bundleConfig['calculator']);
+        }
     }
 }
