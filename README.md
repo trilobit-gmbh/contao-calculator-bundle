@@ -12,11 +12,18 @@ Aufbau
 ------
 
 Der Insert-Tag wird durch die Abkürzung "calc" definiert und mit zwei Doppelpunkten von der Operation getrennt. 
-Dies könnte zum Beispiel so aussehen: {{calc::5 + 7}}, 
-mit Variablen so: {{calc::Länge * Breite}}
-oder so {{calc::Rechteck['Länge'] * Rechteck['Breite']}}.
+Dies könnte zum Beispiel so aussehen: `{{calc::5 + 7}}`, 
+mit Variablen so: `{{calc::Länge * Breite}}`
+oder so `{{calc::Rechteck['Länge'] * Rechteck['Breite']}}`.
 
+Mit Datum rechnen
+------
 
+Um mit Datum rechnen zu können müssen die Date-InsertTags mit `[`-Klammern geschrieben werden:
+
+Die trilobit GmbH gibt es jetzt seit `{{calc::[[date::Y]] - 1999}}` Jahren.
+
+Die trilobit GmbH ist jetzt `{{calc::(([[date::Y]]*12+[[date::m]])-(1999*12+3)-(([[date::Y]]*12+[[date::m]])-(1999*12+3))%12)/12}}` Jahre und `{{calc::(([[date::Y]]*12+[[date::m]])-(1999*12+3))%12}}` Monate alt.
 
 Calculator bundle
 =================
@@ -32,33 +39,33 @@ Structure
 ---------
 
 The insert tag is defined by the abbreviation "calc" and separated from the operation with two colons.
-For example, this could look like this: {{calc::5 + 7}},
-with variables like this: {{calc::length * width}}
-or like this {{calc::rectangle['length'] * rectangle['width']}}.
+For example, this could look like this: `{{calc::5 + 7}}`,
+with variables like this: `{{calc::length * width}}`
+or like this `{{calc::rectangle['length'] * rectangle['width']}}`.
 
 
 How to use
 ----------
 
-Add parameters to your `parameters.yml`:
+Add parameters to your `parameters.yml` or `config.yml`:
 ```yaml
 trilobit:
-  calculator:
-    vars:
-      trilobit: 123
-      contao:
-        partner:
-        - type: 'Webdesign'
-          test: 42
-          referenzen:
-          - 'du'
-          - 'ich'
-          - 'wir'
-        - type: 'Progammierung'
-          test: 2
-        - type: 'Schulung'
-          test: 3
-      github: 'trilobit-gmbh'
+    calculator:
+        vars:
+            trilobit: 123
+            contao:
+                partner:
+                    - type: 'Webdesign'
+                      test: 42
+                      referenzen:
+                          - 'du'
+                          - 'ich'
+                          - 'wir'
+                    - type: 'Progammierung'
+                      test: 2
+                    - type: 'Schulung'
+                      test: 3
+            github: 'trilobit-gmbh'
 ```
 
 
@@ -85,4 +92,5 @@ Compatibility
 -------------
 
 - Contao version ~4.4
+- Contao version ~4.9
 - PHP >= 7.1

@@ -7,4 +7,4 @@
  * @link       http://github.com/trilobit-gmbh/contao-calculator-bundle
  */
 
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['trilobit_contao_calculator.evaluator', 'onEvaluateInsertTag'];
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['trilobit_contao_calculator.listener.insert_tags', 'onReplace'];
