@@ -25,6 +25,13 @@ Die trilobit GmbH gibt es jetzt seit `{{calc::[[date::Y]] - 1999}}` Jahren.
 
 Die trilobit GmbH ist jetzt `{{calc::(([[date::Y]]*12+[[date::m]])-(1999*12+3)-(([[date::Y]]*12+[[date::m]])-(1999*12+3))%12)/12}}` Jahre und `{{calc::(([[date::Y]]*12+[[date::m]])-(1999*12+3))%12}}` Monate alt.
 
+Verwendung mit Formulardaten
+------
+
+Um mit Formulardaten rechnen zu können die müssen Post-InsertTags mit `[`-Klammern geschrieben werden:
+
+Die trilobit GmbH bekommt jetzt `{{post::spende}}`€ und gibt davon `{{calc::[[post::spende]] / 2}}`€ an die Contao Association weiter.
+
 Calculator bundle
 =================
 
