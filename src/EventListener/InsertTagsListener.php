@@ -44,6 +44,8 @@ class InsertTagsListener extends TrilobitContaoCalculatorExtension
                 }
             }
 
+            $task = str_replace('&#39;', '\'', $task);
+
             $expressionLanguage = new ExpressionLanguage();
 
             try {
