@@ -12,7 +12,7 @@ namespace Trilobit\ContaoCalculator;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Trilobit\ContaoCalculator\DependencyInjection\TrilobitContaoCalculatorExtension;
+use Trilobit\ContaoCalculator\DependencyInjection\CalculatorExtension;
 
 /**
  * Configures the trilobit calculator bundle.
@@ -27,7 +27,7 @@ class TrilobitContaoCalculatorBundle extends Bundle
     public function getContainerExtension(): ?ExtensionInterface
     {
         if (null === $this->extension) {
-            $this->extension = new TrilobitContaoCalculatorExtension();
+            $this->extension = new CalculatorExtension();
         }
 
         return $this->extension;

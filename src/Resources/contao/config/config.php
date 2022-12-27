@@ -8,4 +8,6 @@ declare(strict_types=1);
  * @license    LGPL-3.0-or-later
  */
 
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['trilobit_contao_calculator.listener.insert_tags', 'onReplace'];
+use Trilobit\ContaoCalculator\EventListener\InsertTagListener;
+
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = [InsertTagListener::class, '__invoke'];

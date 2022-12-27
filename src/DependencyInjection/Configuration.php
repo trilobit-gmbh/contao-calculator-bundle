@@ -18,12 +18,18 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('trilobit');
-        $treeBuilder
-            ->getRootNode()
+
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('trilobit');
+        }
+
+        $rootNode
             ->children()
-                ->variableNode('calculator')
-                    ->info('calculator vars')
-                ->end()
+            ->variableNode('calculator')
+            ->info('calculator vars')
+            ->end()
             ->end()
         ;
 

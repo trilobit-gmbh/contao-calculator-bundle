@@ -13,16 +13,16 @@ namespace Trilobit\ContaoCalculator\EventListener;
 use Contao\System;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\ExpressionLanguage\SyntaxError;
-use Trilobit\ContaoCalculator\DependencyInjection\TrilobitContaoCalculatorExtension;
+use Trilobit\ContaoCalculator\DependencyInjection\CalculatorExtension;
 
-class InsertTagsListener extends TrilobitContaoCalculatorExtension
+class InsertTagListener extends CalculatorExtension
 {
     /**
      * On replace insert tag.
      *
      * @return string|bool
      */
-    public function onReplace(string $tag)
+    public function __invoke(string $tag)
     {
         $chunks = explode('::', $tag, 2);
 
