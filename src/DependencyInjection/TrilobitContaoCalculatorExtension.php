@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class TrilobitContaoCalculatorExtension extends Extension
 {
-    public function getAlias()
+    public function getAlias(): string
     {
         return 'trilobit';
     }

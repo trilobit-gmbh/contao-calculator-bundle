@@ -30,9 +30,9 @@ class InsertTagsListener extends TrilobitContaoCalculatorExtension
             $task = $chunks[1];
 
             $taskHelper = [
-                'date' => 'Date::parse',
-                'post' => 'Input::post',
-                'get' => 'Input::get',
+                'date' => '\Contao\Date::parse',
+                'post' => '\Contao\Input::post',
+                'get' => '\Contao\Input::get',
             ];
 
             foreach ($taskHelper as $key => $value) {
