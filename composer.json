@@ -1,6 +1,6 @@
 {
     "name": "trilobit-gmbh/contao-calculator-bundle",
-    "description": "Contao 4 calculator bundle",
+    "description": "Contao 4 / Contao 5 calculator bundle",
     "type": "contao-bundle",
     "license": "LGPL-3.0-or-later",
     "authors": [
