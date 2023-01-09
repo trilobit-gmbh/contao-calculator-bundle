@@ -3,16 +3,16 @@ Calculator Bundle
 
 Das Calculator Bundle ermöglicht es durch Verwendung eines Insert-Tags eine Vielzahl an Operationen durchzuführen.
 Mögliche Operationen währen arithmetische Operationen, mit denen es möglich ist, einfache bis verschachtelte Berechnungen
-auszuführen. Durch die Verwendung der Symfony Expression Language ist es außerdem möglich, Variablen zu definieren 
+auszuführen. Durch die Verwendung der Symfony Expression Language ist es außerdem möglich, Variablen zu definieren
 und diese wiederum für Operationen zu verwenden. Diese Variablen können entweder in einer `config.yml` definiert werden dann
-muss diese mit dem Array `parameters` anfangen und unter `www/app/config` ihrer Webseite abgelegt werden. Oder sie fügen 
+muss diese mit dem Array `parameters` anfangen und unter `www/app/config` ihrer Webseite abgelegt werden. Oder sie fügen
 die Variablen in die `parameters.yml` ihrer Webseite ein, so wie im Beispiel unten.
 
 Aufbau
 ------
 
-Der Insert-Tag wird durch die Abkürzung "calc" definiert und mit zwei Doppelpunkten von der Operation getrennt. 
-Dies könnte zum Beispiel so aussehen: `{{calc::5 + 7}}`, 
+Der Insert-Tag wird durch die Abkürzung "calc" definiert und mit zwei Doppelpunkten von der Operation getrennt.
+Dies könnte zum Beispiel so aussehen: `{{calc::5 + 7}}`,
 mit Variablen so: `{{calc::Länge * Breite}}`
 oder so `{{calc::Rechteck['Länge'] * Rechteck['Breite']}}`.
 
@@ -35,10 +35,10 @@ Die trilobit GmbH bekommt jetzt `{{post::spende}}`€ und gibt davon `{{calc::[[
 Calculator bundle
 =================
 
-The Calculator Bundle allows you to perform a variety of operations by using an insert-tag. Possible operations 
-could be arithmetical operations with which it is possible to do simple to complex calculations. By using the 
-Symfony Expression Language it is also possible to define variables and to use these for operations. 
-These variables can either be defined in a `config.yml` but then they must start with the array `parameters` and be 
+The Calculator Bundle allows you to perform a variety of operations by using an insert-tag. Possible operations
+could be arithmetical operations with which it is possible to do simple to complex calculations. By using the
+Symfony Expression Language it is also possible to define variables and to use these for operations.
+These variables can either be defined in a `config.yml` but then they must start with the array `parameters` and be
 stored in `www/app/config` of your website. Or you add the variables to your `parameters.yml` of your website, as in the example below.
 
 
@@ -95,8 +95,10 @@ Installation
 Install the extension via composer: [trilobit-gmbh/contao-calculator-bundle](https://packagist.org/packages/trilobit-gmbh/contao-calculator-bundle).
 
 
+
 Compatibility
 -------------
 
 - Contao version ~4.9
 - Contao version ~4.13
+- Contao version ~5.0

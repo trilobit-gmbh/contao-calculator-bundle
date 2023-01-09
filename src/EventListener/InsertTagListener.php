@@ -6,7 +6,6 @@ declare(strict_types=1);
  * @copyright  trilobit GmbH
  * @author     trilobit GmbH <https://github.com/trilobit-gmbh>
  * @license    LGPL-3.0-or-later
- * @link       http://github.com/trilobit-gmbh/contao-calculator-bundle
  */
 
 namespace Trilobit\ContaoCalculator\EventListener;
@@ -14,16 +13,16 @@ namespace Trilobit\ContaoCalculator\EventListener;
 use Contao\System;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\ExpressionLanguage\SyntaxError;
-use Trilobit\ContaoCalculator\DependencyInjection\TrilobitContaoCalculatorExtension;
+use Trilobit\ContaoCalculator\DependencyInjection\CalculatorExtension;
 
-class InsertTagsListener extends TrilobitContaoCalculatorExtension
+class InsertTagListener extends CalculatorExtension
 {
     /**
      * On replace insert tag.
      *
      * @return string|bool
      */
-    public function onReplace(string $tag)
+    public function __invoke(string $tag)
     {
         $chunks = explode('::', $tag, 2);
 
@@ -31,9 +30,9 @@ class InsertTagsListener extends TrilobitContaoCalculatorExtension
             $task = $chunks[1];
 
             $taskHelper = [
-                'date' => 'Date::parse',
-                'post' => 'Input::post',
-                'get' => 'Input::get',
+                'date' => '\Contao\Date::parse',
+                'post' => '\Contao\Input::post',
+                'get' => '\Contao\Input::get',
             ];
 
             foreach ($taskHelper as $key => $value) {
