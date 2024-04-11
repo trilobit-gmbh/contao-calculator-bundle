@@ -17,19 +17,19 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('trilobit');
+        $treeBuilder = new TreeBuilder('trilobit_calculator');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
             $rootNode = $treeBuilder->getRootNode();
         } else {
-            $rootNode = $treeBuilder->root('trilobit');
+            $rootNode = $treeBuilder->root('trilobit_calculator');
         }
 
         $rootNode
             ->children()
-            ->variableNode('calculator')
-            ->info('calculator vars')
-            ->end()
+                ->variableNode('calculator')
+                    ->info('calculator vars')
+                ->end()
             ->end()
         ;
 

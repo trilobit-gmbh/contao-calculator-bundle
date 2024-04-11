@@ -19,7 +19,7 @@ class CalculatorExtension extends Extension
 {
     public function getAlias(): string
     {
-        return 'trilobit';
+        return 'trilobit_calculator';
     }
 
     /**
