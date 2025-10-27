@@ -23,15 +23,12 @@ use Trilobit\ContaoCalculator\TrilobitContaoCalculatorBundle;
  */
 class Plugin implements BundlePluginInterface
 {
-    /**
-     * {@inheritDoc}
-     */
     public function getBundles(ParserInterface $parser)
     {
         return [
             BundleConfig::create(TrilobitContaoCalculatorBundle::class)
                 ->setLoadAfter([
-                    ContaoCoreBundle::class
+                    ContaoCoreBundle::class,
                 ]),
         ];
     }

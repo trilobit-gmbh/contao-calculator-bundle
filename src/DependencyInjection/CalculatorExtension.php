@@ -22,17 +22,17 @@ class CalculatorExtension extends Extension
         return 'trilobit_calculator';
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function load(array $configs, ContainerBuilder $container): void
     {
+        $loader = new YamlFileLoader(
+            $container,
+            new FileLocator(__DIR__.'/../Resources/config')
+        );
+        $loader->load('services.yml');
+
         $configuration = new Configuration();
 
         $bundleConfig = $this->processConfiguration($configuration, $configs);
-
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
 
         if (isset($bundleConfig['calculator'])) {
             $container->setParameter('trilobit.calculator', $bundleConfig['calculator']);
