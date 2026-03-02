@@ -1,4 +1,12 @@
 services:
-  trilobit_contao_calculator.listener.insert_tags:
-    class: Trilobit\ContaoCalculator\EventListener\InsertTagsListener
-    public: true
+    _defaults:
+        autoconfigure: true
+
+    _instanceof:
+        Contao\CoreBundle\Framework\FrameworkAwareInterface:
+            calls:
+                - [setFramework, ['@contao.framework']]
+
+    trilobit_contao_calculator.listener.insert_tags:
+        class: Trilobit\ContaoCalculator\EventListener\InsertTagsListener
+        public: true
